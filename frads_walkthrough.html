@@ -447,16 +447,60 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>git<span class="w"> </span>clone<span class="w"> </span>-b<span class="w"> </span>development<span class="w"> </span>https://github.com/shirubana/pyrad_workshop_24.git
-<span class="n">cd</span> <span class="n">pyrad_workshop_24</span>
-<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>requirements.txt
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span>  <span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">line</span> <span class="mi">2</span>
-    <span class="n">cd</span> <span class="n">pyrad_workshop_24</span>
-       <span class="o">^</span>
-<span class="ne">SyntaxError</span>: invalid syntax
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>fatal: destination path &#39;pyrad_workshop_24&#39; already exists and is not an empty directory.
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">pyrad_workshop_24</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\sayala\Documents\GitHub\tutorials\pyrad_workshop_24\pyrad_workshop_24
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\sayala\.conda\envs\RadWorkshop\Lib\site-packages\IPython\core\magics\osm.py:417: UserWarning: This is now an optional IPython functionality, setting dhist requires you to install the `pickleshare` library.
+  self.shell.db[&#39;dhist&#39;] = compress_dhist(dhist)[-100:]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: matplotlib in c:\users\sayala\appdata\roaming\python\python311\site-packages (from -r requirements.txt (line 1)) (3.7.2)
+Requirement already satisfied: pyradiance in c:\users\sayala\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 2)) (0.5.0)
+Requirement already satisfied: frads in c:\users\sayala\appdata\local\programs\python\python311\lib\site-packages (from -r requirements.txt (line 3)) (1.2.6)
+Requirement already satisfied: contourpy&gt;=1.0.1 in c:\users\sayala\appdata\roaming\python\python311\site-packages (from matplotlib-&gt;-r requirements.txt (line 1)) (1.1.0)
+Requirement already satisfied: cycler&gt;=0.10 in c:\users\sayala\appdata\roaming\python\python311\site-packages (from matplotlib-&gt;-r requirements.txt (line 1)) (0.11.0)
+Requirement already satisfied: fonttools&gt;=4.22.0 in c:\users\sayala\appdata\roaming\python\python311\site-packages (from matplotlib-&gt;-r requirements.txt (line 1)) (4.42.0)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in c:\users\sayala\appdata\roaming\python\python311\site-packages (from matplotlib-&gt;-r requirements.txt (line 1)) (1.4.4)
+Requirement already satisfied: numpy&gt;=1.20 in c:\users\sayala\appdata\roaming\python\python311\site-packages (from matplotlib-&gt;-r requirements.txt (line 1)) (1.24.4)
+Requirement already satisfied: packaging&gt;=20.0 in c:\users\sayala\appdata\local\programs\python\python311\lib\site-packages (from matplotlib-&gt;-r requirements.txt (line 1)) (24.0)
+Requirement already satisfied: pillow&gt;=6.2.0 in c:\users\sayala\appdata\roaming\python\python311\site-packages (from matplotlib-&gt;-r requirements.txt (line 1)) (10.0.0)
+Requirement already satisfied: pyparsing&lt;3.1,&gt;=2.3.1 in c:\users\sayala\appdata\roaming\python\python311\site-packages (from matplotlib-&gt;-r requirements.txt (line 1)) (3.0.9)
+Requirement already satisfied: python-dateutil&gt;=2.7 in c:\users\sayala\appdata\local\programs\python\python311\lib\site-packages (from matplotlib-&gt;-r requirements.txt (line 1)) (2.9.0.post0)
+Requirement already satisfied: epmodel&gt;=0.6.0 in c:\users\sayala\appdata\local\programs\python\python311\lib\site-packages (from frads-&gt;-r requirements.txt (line 3)) (0.7.0)
+Requirement already satisfied: pywincalc&gt;=3.1.0 in c:\users\sayala\appdata\local\programs\python\python311\lib\site-packages (from frads-&gt;-r requirements.txt (line 3)) (3.3.1)
+Requirement already satisfied: pyenergyplus-lbnl&gt;=23.2.0 in c:\users\sayala\appdata\local\programs\python\python311\lib\site-packages (from frads-&gt;-r requirements.txt (line 3)) (23.2.0)
+Requirement already satisfied: scipy&gt;=1.10.1 in c:\users\sayala\appdata\roaming\python\python311\site-packages (from frads-&gt;-r requirements.txt (line 3)) (1.11.1)
+Requirement already satisfied: pydantic&gt;=2.3.0 in c:\users\sayala\appdata\local\programs\python\python311\lib\site-packages (from epmodel&gt;=0.6.0-&gt;frads-&gt;-r requirements.txt (line 3)) (2.8.2)
+Requirement already satisfied: six&gt;=1.5 in c:\users\sayala\appdata\local\programs\python\python311\lib\site-packages (from python-dateutil&gt;=2.7-&gt;matplotlib-&gt;-r requirements.txt (line 1)) (1.16.0)
+Requirement already satisfied: deprecation in c:\users\sayala\appdata\local\programs\python\python311\lib\site-packages (from pywincalc&gt;=3.1.0-&gt;frads-&gt;-r requirements.txt (line 3)) (2.1.0)
+Requirement already satisfied: annotated-types&gt;=0.4.0 in c:\users\sayala\appdata\local\programs\python\python311\lib\site-packages (from pydantic&gt;=2.3.0-&gt;epmodel&gt;=0.6.0-&gt;frads-&gt;-r requirements.txt (line 3)) (0.7.0)
+Requirement already satisfied: pydantic-core==2.20.1 in c:\users\sayala\appdata\local\programs\python\python311\lib\site-packages (from pydantic&gt;=2.3.0-&gt;epmodel&gt;=0.6.0-&gt;frads-&gt;-r requirements.txt (line 3)) (2.20.1)
+Requirement already satisfied: typing-extensions&gt;=4.6.1 in c:\users\sayala\appdata\local\programs\python\python311\lib\site-packages (from pydantic&gt;=2.3.0-&gt;epmodel&gt;=0.6.0-&gt;frads-&gt;-r requirements.txt (line 3)) (4.12.2)
 </pre></div>
 </div>
 </div>
@@ -537,10 +581,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x1f54005fa70&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x2ddffd76d80&gt;
 </pre></div>
 </div>
-<img alt="_images/471608e4e0574b6dddf6d37981a63c62563ae6036a4bdf635746ebe26a500d9b.png" src="_images/471608e4e0574b6dddf6d37981a63c62563ae6036a4bdf635746ebe26a500d9b.png" />
+<img alt="_images/c5afbd6626f56e2edd2c60d078a30b4de162d8760286e4ecec43b40d4fcb7719.png" src="_images/c5afbd6626f56e2edd2c60d078a30b4de162d8760286e4ecec43b40d4fcb7719.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -618,6 +662,70 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">workflow</span><span class="o">.</span><span class="n">generate_matrices</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">workflow</span><span class="o">.</span><span class="n">generate_matrices</span><span class="p">()</span>
+
+<span class="nn">File ~\Documents\GitHub\tutorials\RadianceWorkshop\frads\frads\methods.py:1039,</span> in <span class="ni">ThreePhaseMethod.generate_matrices</span><span class="nt">(self, view_matrices)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1034</span>     <span class="n">mtx</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1035</span>         <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">surface_window_matrix</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1036</span>         <span class="n">nproc</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">num_processors</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1037</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1038</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">mtx</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">daylight_matrices</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="ne">-&gt; </span><span class="mi">1039</span>     <span class="n">mtx</span><span class="o">.</span><span class="n">generate</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1040</span>         <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">daylight_matrix</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1041</span>         <span class="n">nproc</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">num_processors</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1042</span>     <span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1043</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">save_matrices</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1044</span>     <span class="bp">self</span><span class="o">.</span><span class="n">save_matrices</span><span class="p">()</span>
+
+<span class="nn">File ~\Documents\GitHub\tutorials\RadianceWorkshop\frads\frads\matrix.py:400,</span> in <span class="ni">Matrix.generate</span><span class="nt">(self, params, nproc, sparse, to_file, memmap)</span>
+<span class="g g-Whitespace">    </span><span class="mi">398</span>         <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">surface_file</span><span class="p">,</span> <span class="s2">&quot;w&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">399</span>             <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sender</span><span class="o">.</span><span class="n">content</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">400</span>     <span class="n">matrix</span> <span class="o">=</span> <span class="n">pr</span><span class="o">.</span><span class="n">rfluxmtx</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">401</span>         <span class="n">receiver_file</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">402</span>         <span class="n">surface</span><span class="o">=</span><span class="n">surface_file</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">403</span>         <span class="n">rays</span><span class="o">=</span><span class="n">rays</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">404</span>         <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">405</span>         <span class="n">octree</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">octree</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">406</span>         <span class="n">scene</span><span class="o">=</span><span class="n">env_file</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">407</span>     <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">408</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">to_file</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">409</span>     <span class="n">_ncols</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ncols</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ncols</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">ncols</span>
+
+<span class="nn">File ~\.conda\envs\RadWorkshop\Lib\site-packages\pyradiance\anci.py:22,</span> in <span class="ni">handle_called_process_error.&lt;locals&gt;.wrapper</span><span class="nt">(*args, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> <span class="nd">@wraps</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">20</span> <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">22</span>         <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">23</span>     <span class="k">except</span> <span class="n">CalledProcessError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span>         <span class="n">errmsg</span> <span class="o">=</span> <span class="n">e</span><span class="o">.</span><span class="n">stderr</span> <span class="ow">or</span> <span class="sa">b</span><span class="s2">&quot;&quot;</span>
+
+<span class="nn">File ~\.conda\envs\RadWorkshop\Lib\site-packages\pyradiance\util.py:798,</span> in <span class="ni">rfluxmtx</span><span class="nt">(receiver, surface, rays, params, octree, scene)</span>
+<span class="g g-Whitespace">    </span><span class="mi">796</span>     <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">797</span>         <span class="n">cmd</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">scene</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">798</span> <span class="k">return</span> <span class="n">sp</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stdout</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span> <span class="nb">input</span><span class="o">=</span><span class="n">rays</span><span class="p">)</span><span class="o">.</span><span class="n">stdout</span>
+
+<span class="nn">File ~\.conda\envs\RadWorkshop\Lib\subprocess.py:550,</span> in <span class="ni">run</span><span class="nt">(input, capture_output, timeout, check, *popenargs, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">548</span> <span class="k">with</span> <span class="n">Popen</span><span class="p">(</span><span class="o">*</span><span class="n">popenargs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="k">as</span> <span class="n">process</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">549</span>     <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">550</span>         <span class="n">stdout</span><span class="p">,</span> <span class="n">stderr</span> <span class="o">=</span> <span class="n">process</span><span class="o">.</span><span class="n">communicate</span><span class="p">(</span><span class="nb">input</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="n">timeout</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">551</span>     <span class="k">except</span> <span class="n">TimeoutExpired</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">552</span>         <span class="n">process</span><span class="o">.</span><span class="n">kill</span><span class="p">()</span>
+
+<span class="nn">File ~\.conda\envs\RadWorkshop\Lib\subprocess.py:1196,</span> in <span class="ni">Popen.communicate</span><span class="nt">(self, input, timeout)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1194</span>     <span class="bp">self</span><span class="o">.</span><span class="n">_stdin_write</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1195</span> <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">stdout</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1196</span>     <span class="n">stdout</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1197</span>     <span class="bp">self</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1198</span> <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">stderr</span><span class="p">:</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
