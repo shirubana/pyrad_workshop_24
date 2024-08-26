@@ -1,0 +1,981 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Horizontal melanopic lux &#8212; pyRADWorkshop2024</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=fa44fd50" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'frads_walkthrough';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Make a scene" href="pyradiance_walkthrough.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">pyRADWorkshop2024</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to the pyradiance Training
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="pyradiance_walkthrough.html">Make a scene</a></li>
+
+
+
+
+
+
+
+
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Horizontal melanopic lux</a></li>
+
+
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/taoning/pyrad_workshop_24/blob/development/tutorials/frads_walkthrough.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/taoning/pyrad_workshop_24" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/taoning/pyrad_workshop_24/issues/new?title=Issue%20on%20page%20%2Ffrads_walkthrough.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/frads_walkthrough.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Horizontal melanopic lux</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Horizontal melanopic lux</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-another-scene">Make another scene</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-grid-from-floor-polygon">Generate grid from floor polygon</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trace">Trace</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize">Visualize</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-simulation">Phase simulation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-a-workflow-configuration-from-a-dictionary">Setting up a workflow configuration from a dictionary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#see-here-for-setting-up-one-item-at-a-time">see here for setting up one item at a time.</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#energyplus-and-radiance">EnergyPlus and Radiance</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-an-energyplus-model">Load an EnergyPlus model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Load an EnergyPlus model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-glazing-systems-bsdf">Create Glazing Systems (BSDF)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#see-here-for-more-options">See here for more options</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#runtime-call-back">Runtime call back</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">datetime</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">import</span> <span class="nn">frads</span> <span class="k">as</span> <span class="nn">fr</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pyradiance</span> <span class="k">as</span> <span class="nn">pr</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">pyenergyplus.dataset</span> <span class="kn">import</span> <span class="n">ref_models</span>
+</pre></div>
+</div>
+</div>
+</div>
+<section id="horizontal-melanopic-lux">
+<h1>Horizontal melanopic lux<a class="headerlink" href="#horizontal-melanopic-lux" title="Link to this heading">#</a></h1>
+<section id="make-another-scene">
+<h2>Make another scene<a class="headerlink" href="#make-another-scene" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_scene</span> <span class="o">=</span> <span class="n">pr</span><span class="o">.</span><span class="n">Scene</span><span class="p">(</span>
+    <span class="s2">&quot;my_scene&quot;</span><span class="p">,</span> 
+    <span class="n">surfaces</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Objects/floor.rad&quot;</span><span class="p">,</span> <span class="s2">&quot;Objects/walls.rad&quot;</span><span class="p">,</span> <span class="s2">&quot;Objects/ceiling.rad&quot;</span><span class="p">],</span> 
+    <span class="n">materials</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Objects/materials.mat&quot;</span><span class="p">],</span> 
+    <span class="n">sources</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Sources/gs_1221_1200.rad&quot;</span><span class="p">,</span> <span class="s2">&quot;Sources/sky.rad&quot;</span><span class="p">]</span>
+<span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="generate-grid-from-floor-polygon">
+<h2>Generate grid from floor polygon<a class="headerlink" href="#generate-grid-from-floor-polygon" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">floor_primitives</span> <span class="o">=</span> <span class="n">fr</span><span class="o">.</span><span class="n">unpack_primitives</span><span class="p">(</span><span class="s2">&quot;Objects/floor.rad&quot;</span><span class="p">)</span>
+<span class="n">floor_polygon</span> <span class="o">=</span> <span class="n">fr</span><span class="o">.</span><span class="n">parse_polygon</span><span class="p">(</span><span class="n">floor_primitives</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># taking the 1st primitive</span>
+<span class="n">grid</span> <span class="o">=</span> <span class="n">fr</span><span class="o">.</span><span class="n">gen_grid</span><span class="p">(</span><span class="n">floor_polygon</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="trace">
+<h2>Trace<a class="headerlink" href="#trace" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">grid_rays</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">row</span><span class="p">))</span> <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">grid</span><span class="p">)</span>
+<span class="n">nband</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">params</span> <span class="o">=</span> <span class="n">pr</span><span class="o">.</span><span class="n">SamplingParameters</span><span class="p">(</span>
+    <span class="n">I</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">ab</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+    <span class="n">ad</span><span class="o">=</span><span class="mi">64</span><span class="p">,</span>
+    <span class="n">aa</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+    <span class="n">lw</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
+    <span class="n">co</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">cs</span><span class="o">=</span><span class="n">nband</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="n">result</span> <span class="o">=</span> <span class="n">pr</span><span class="o">.</span><span class="n">rtrace</span><span class="p">(</span><span class="n">grid_rays</span><span class="o">.</span><span class="n">encode</span><span class="p">(),</span> <span class="n">my_scene</span><span class="o">.</span><span class="n">octree</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="o">.</span><span class="n">args</span><span class="p">()</span><span class="o">+</span><span class="p">[</span><span class="s1">&#39;-pM&#39;</span><span class="p">],</span> <span class="n">header</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">outform</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="visualize">
+<h2>Visualize<a class="headerlink" href="#visualize" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">mlux</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">frombuffer</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">single</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">53</span><span class="p">,</span> <span class="mi">61</span><span class="p">)</span>   <span class="c1"># grid dimensions</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">mlux</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x1783a396570&gt;
+</pre></div>
+</div>
+<img alt="_images/e2855ace6f0ef3c342d1b7ca25df44381b66eb5a02c66422152e445bce9713be.png" src="_images/e2855ace6f0ef3c342d1b7ca25df44381b66eb5a02c66422152e445bce9713be.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">settings</span> <span class="o">=</span> <span class="n">fr</span><span class="o">.</span><span class="n">Settings</span><span class="p">()</span>
+<span class="c1"># Edit the number of parallel processes</span>
+<span class="n">settings</span><span class="o">.</span><span class="n">num_processors</span> <span class="o">=</span> <span class="mi">4</span>
+
+<span class="c1"># Provide a wea file</span>
+<span class="n">settings</span><span class="o">.</span><span class="n">wea_file</span> <span class="o">=</span> <span class="s2">&quot;oak.wea&quot;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="phase-simulation">
+<h1>Phase simulation<a class="headerlink" href="#phase-simulation" title="Link to this heading">#</a></h1>
+<section id="setting-up-a-workflow-configuration-from-a-dictionary">
+<h2>Setting up a workflow configuration from a dictionary<a class="headerlink" href="#setting-up-a-workflow-configuration-from-a-dictionary" title="Link to this heading">#</a></h2>
+</section>
+<section id="see-here-for-setting-up-one-item-at-a-time">
+<h2>see <a class="reference external" href="https://lbnl-eta.github.io/frads/how-to/guide_rad2/">here</a> for setting up one item at a time.<a class="headerlink" href="#see-here-for-setting-up-one-item-at-a-time" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">workflow_config</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;settings&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;method&quot;</span><span class="p">:</span> <span class="s2">&quot;3phase&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;sky_basis&quot;</span><span class="p">:</span> <span class="s2">&quot;r1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;epw_file&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;wea_file&quot;</span><span class="p">:</span> <span class="s2">&quot;Resources/slc.wea&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;sensor_sky_matrix&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;-ab&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;view_sky_matrix&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;-ab&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;sensor_window_matrix&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;-ab&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;view_window_matrix&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;-ab&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;daylight_matrix&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;-ab&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">],</span>
+        <span class="s2">&quot;num_processors&quot;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
+        <span class="s2">&quot;save_matrices&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s2">&quot;model&quot;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;scene&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;files&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Objects/walls.rad&quot;</span><span class="p">,</span> <span class="s2">&quot;Objects/ceiling.rad&quot;</span><span class="p">,</span> <span class="s2">&quot;Objects/floor.rad&quot;</span><span class="p">,</span><span class="s2">&quot;Objects/ground.rad&quot;</span><span class="p">]</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;windows&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;window1&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;file&quot;</span><span class="p">:</span> <span class="s2">&quot;Objects/upper_glass.rad&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;matrix_name&quot;</span><span class="p">:</span> <span class="s2">&quot;window1_matrix&quot;</span><span class="p">,</span>
+            <span class="p">},</span>
+                        <span class="s2">&quot;window2&quot;</span><span class="p">:</span> <span class="p">{</span>
+                <span class="s2">&quot;file&quot;</span><span class="p">:</span> <span class="s2">&quot;Objects/lower_glass.rad&quot;</span><span class="p">,</span>
+                <span class="s2">&quot;matrix_name&quot;</span><span class="p">:</span> <span class="s2">&quot;window1_matrix&quot;</span><span class="p">,</span>
+            <span class="p">}</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;materials&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;files&quot;</span><span class="p">:</span> <span class="p">[</span><span class="s2">&quot;Objects/materials.mat&quot;</span><span class="p">],</span>
+            <span class="s2">&quot;matrices&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;window1_matrix&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;matrix_file&quot;</span><span class="p">:</span> <span class="s2">&quot;Resources/ms6858_kf.xml&quot;</span><span class="p">}},</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;sensors&quot;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s2">&quot;view1&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;data&quot;</span><span class="p">:</span> <span class="p">[[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]]},</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+<span class="n">cfg</span> <span class="o">=</span> <span class="n">fr</span><span class="o">.</span><span class="n">WorkflowConfig</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">workflow_config</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">workflow</span> <span class="o">=</span> <span class="n">fr</span><span class="o">.</span><span class="n">ThreePhaseMethod</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">workflow</span><span class="o">.</span><span class="n">generate_matrices</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">workflow</span><span class="o">.</span><span class="n">calculate_sensor</span><span class="p">(</span>
+    <span class="n">sensor</span><span class="o">=</span><span class="s2">&quot;view1&quot;</span><span class="p">,</span>
+    <span class="n">bsdf</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;window1&quot;</span><span class="p">:</span> <span class="s2">&quot;window1_matrix&quot;</span><span class="p">,</span><span class="s2">&quot;window2&quot;</span><span class="p">:</span> <span class="s2">&quot;window1_matrix&quot;</span><span class="p">},</span>
+    <span class="n">time</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>
+    <span class="n">dni</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span>
+    <span class="n">dhi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1956.94269549]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">workflow2</span> <span class="o">=</span> <span class="n">fr</span><span class="o">.</span><span class="n">TwoPhaseMethod</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">workflow2</span><span class="o">.</span><span class="n">generate_matrices</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">KeyError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="n">Cell</span> <span class="n">In</span><span class="p">[</span><span class="mi">12</span><span class="p">],</span> <span class="n">line</span> <span class="mi">1</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">workflow2</span><span class="o">.</span><span class="n">generate_matrices</span><span class="p">()</span>
+
+<span class="nn">File ~\Documents\GitHub\tutorials\RadianceWorkshop\frads\frads\methods.py:796,</span> in <span class="ni">TwoPhaseMethod.generate_matrices</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">794</span> <span class="c1"># First check if matrices files already exist</span>
+<span class="g g-Whitespace">    </span><span class="mi">795</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mfile</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">overwrite</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">796</span>     <span class="bp">self</span><span class="o">.</span><span class="n">load_matrices</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">797</span>     <span class="k">return</span>
+<span class="g g-Whitespace">    </span><span class="mi">798</span> <span class="c1"># Then check if overwrite is set to True</span>
+
+<span class="nn">File ~\Documents\GitHub\tutorials\RadianceWorkshop\frads\frads\methods.py:823,</span> in <span class="ni">TwoPhaseMethod.load_matrices</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">821</span>     <span class="n">mtx</span><span class="o">.</span><span class="n">array</span> <span class="o">=</span> <span class="n">mdata</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">view</span><span class="si">}</span><span class="s2">_sky_matrix&quot;</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">822</span> <span class="k">for</span> <span class="n">sensor</span><span class="p">,</span> <span class="n">mtx</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">sensor_sky_matrices</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="ne">--&gt; </span><span class="mi">823</span>     <span class="n">mtx</span><span class="o">.</span><span class="n">array</span> <span class="o">=</span> <span class="n">mdata</span><span class="p">[</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">sensor</span><span class="si">}</span><span class="s2">_sky_matrix&quot;</span><span class="p">]</span>
+
+<span class="nn">File ~\.conda\envs\RadWorkshop\Lib\site-packages\numpy\lib\_npyio_impl.py:265,</span> in <span class="ni">NpzFile.__getitem__</span><span class="nt">(self, key)</span>
+<span class="g g-Whitespace">    </span><span class="mi">263</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">zip</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">264</span> <span class="k">else</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">265</span>     <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> is not a file in the archive&quot;</span><span class="p">)</span>
+
+<span class="ne">KeyError</span>: &#39;view1_sky_matrix is not a file in the archive&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">workflow2</span><span class="o">.</span><span class="n">calculate_sensor</span><span class="p">(</span>
+    <span class="n">sensor</span><span class="o">=</span><span class="s2">&quot;view1&quot;</span><span class="p">,</span>
+    <span class="n">time</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2023</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">),</span>
+    <span class="n">dni</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span>
+    <span class="n">dhi</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="energyplus-and-radiance">
+<h1>EnergyPlus and Radiance<a class="headerlink" href="#energyplus-and-radiance" title="Link to this heading">#</a></h1>
+<section id="load-an-energyplus-model">
+<h2>Load an EnergyPlus model<a class="headerlink" href="#load-an-energyplus-model" title="Link to this heading">#</a></h2>
+<p>The model can be an .idf file or .epJSON file.
+Here we are loading a small office prototypical building model that comes with pyenergyplus</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">epmodel</span> <span class="o">=</span> <span class="n">fr</span><span class="o">.</span><span class="n">load_energyplus_model</span><span class="p">(</span><span class="n">ref_models</span><span class="p">[</span><span class="s1">&#39;small_office&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="id1">
+<h2>Load an EnergyPlus model<a class="headerlink" href="#id1" title="Link to this heading">#</a></h2>
+<p>The model can be an .idf file or .epJSON file.
+Here we are loading the small office prototype building comes with pyenergyplus</p>
+</section>
+<section id="create-glazing-systems-bsdf">
+<h2>Create Glazing Systems (BSDF)<a class="headerlink" href="#create-glazing-systems-bsdf" title="Link to this heading">#</a></h2>
+<section id="see-here-for-more-options">
+<h3>See <a class="reference external" href="https://lbnl-eta.github.io/frads/how-to/guide_ep2/">here</a> for more options<a class="headerlink" href="#see-here-for-more-options" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ec60</span> <span class="o">=</span> <span class="n">fr</span><span class="o">.</span><span class="n">create_glazing_system</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;ec_60&quot;</span><span class="p">,</span>
+    <span class="n">layers</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;Resources/igsdb_product_7406.json&quot;</span><span class="p">),</span> <span class="c1"># electrochromic 60%</span>
+        <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;Resources/igsdb_product_14028.json&quot;</span><span class="p">),</span> <span class="c1"># clear glass</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+<span class="n">ec18</span> <span class="o">=</span> <span class="n">fr</span><span class="o">.</span><span class="n">create_glazing_system</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;ec_60&quot;</span><span class="p">,</span>
+    <span class="n">layers</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;Resources/igsdb_product_7404.json&quot;</span><span class="p">),</span> <span class="c1"># electrochromic 18%</span>
+        <span class="n">Path</span><span class="p">(</span><span class="s2">&quot;Resources/igsdb_product_14028.json&quot;</span><span class="p">),</span> <span class="c1"># clear glass</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+<span class="n">epmodel</span><span class="o">.</span><span class="n">add_glazing_system</span><span class="p">(</span><span class="n">ec60</span><span class="p">)</span>
+<span class="n">epmodel</span><span class="o">.</span><span class="n">add_glazing_system</span><span class="p">(</span><span class="n">ec18</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">epsetup</span> <span class="o">=</span> <span class="n">fr</span><span class="o">.</span><span class="n">EnergyPlusSetup</span><span class="p">(</span><span class="n">epmodel</span><span class="p">,</span> <span class="n">enable_radiance</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/taoningw/Projects/pyrad_workshop_24/.venv/lib/python3.12/site-packages/pydantic/main.py:415: UserWarning: Pydantic serializer warnings:
+  Expected `Union[EvaporativeCondenserPumpRatedPowerConsumption, literal[&#39;Autosize&#39;]]` but got `float` - serialized value may not be as expected
+  Expected `Union[EvaporativeCondenserPumpRatedPowerConsumption, literal[&#39;Autosize&#39;]]` but got `float` - serialized value may not be as expected
+  Expected `Union[EvaporativeCondenserPumpRatedPowerConsumption, literal[&#39;Autosize&#39;]]` but got `float` - serialized value may not be as expected
+  Expected `Union[EvaporativeCondenserPumpRatedPowerConsumption, literal[&#39;Autosize&#39;]]` but got `float` - serialized value may not be as expected
+  Expected `Union[EvaporativeCondenserPumpRatedPowerConsumption, literal[&#39;Autosize&#39;]]` but got `float` - serialized value may not be as expected
+  return self.__pydantic_serializer__.to_json(
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># epsetup.run(design_day=True)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="runtime-call-back">
+<h2>Runtime call back<a class="headerlink" href="#runtime-call-back" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">controller</span><span class="p">(</span><span class="n">state</span><span class="p">):</span>
+    <span class="c1"># check if the api is fully ready</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">epsetup</span><span class="o">.</span><span class="n">api</span><span class="o">.</span><span class="n">exchange</span><span class="o">.</span><span class="n">api_data_fully_ready</span><span class="p">(</span><span class="n">state</span><span class="p">):</span>
+        <span class="k">return</span>
+
+    <span class="c1"># control facade shading state based on exterior solar irradiance</span>
+    <span class="c1"># get exterior solar irradiance</span>
+    <span class="n">ext_irradiance</span> <span class="o">=</span> <span class="n">epsetup</span><span class="o">.</span><span class="n">get_variable_value</span><span class="p">(</span>
+        <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Surface Outside Face Incident Solar Radiation Rate per Area&quot;</span><span class="p">,</span>
+        <span class="n">key</span><span class="o">=</span><span class="s2">&quot;Perimeter_ZN_1_wall_south_Window_1&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="c1"># facade shading state control algorithm</span>
+    <span class="k">if</span> <span class="n">ext_irradiance</span> <span class="o">&lt;=</span> <span class="mi">300</span><span class="p">:</span>
+        <span class="n">ec</span> <span class="o">=</span> <span class="s2">&quot;60&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ec</span> <span class="o">=</span> <span class="s2">&quot;18&quot;</span>
+    <span class="n">cfs_state</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;ec_</span><span class="si">{</span><span class="n">ec</span><span class="si">}</span><span class="s2">&quot;</span>
+    <span class="c1"># actuate facade shading state</span>
+    <span class="n">epsetup</span><span class="o">.</span><span class="n">actuate_cfs_state</span><span class="p">(</span>
+        <span class="n">window</span><span class="o">=</span><span class="s2">&quot;Perimeter_ZN_1_wall_south_Window_1&quot;</span><span class="p">,</span>
+        <span class="n">cfs_state</span><span class="o">=</span><span class="n">cfs_state</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="c1"># calculate average workplane illuminance using Radiance</span>
+    <span class="n">avg_wpi</span> <span class="o">=</span> <span class="n">epsetup</span><span class="o">.</span><span class="n">calculate_wpi</span><span class="p">(</span>
+        <span class="n">zone</span><span class="o">=</span><span class="s2">&quot;Perimeter_ZN_1&quot;</span><span class="p">,</span>
+        <span class="n">cfs_name</span><span class="o">=</span><span class="p">{</span>
+            <span class="s2">&quot;Perimeter_ZN_1_wall_south_Window_1&quot;</span><span class="p">:</span> <span class="n">cfs_state</span><span class="p">,</span>
+            <span class="s2">&quot;Perimeter_ZN_1_wall_south_Window_2&quot;</span><span class="p">:</span> <span class="n">cfs_state</span><span class="p">,</span>
+            <span class="s2">&quot;Perimeter_ZN_1_wall_south_Window_3&quot;</span><span class="p">:</span> <span class="n">cfs_state</span><span class="p">,</span>
+            <span class="s2">&quot;Perimeter_ZN_1_wall_south_Window_4&quot;</span><span class="p">:</span> <span class="n">cfs_state</span><span class="p">,</span>
+            <span class="s2">&quot;Perimeter_ZN_1_wall_south_Window_5&quot;</span><span class="p">:</span> <span class="n">cfs_state</span><span class="p">,</span>
+            <span class="s2">&quot;Perimeter_ZN_1_wall_south_Window_6&quot;</span><span class="p">:</span> <span class="n">cfs_state</span><span class="p">,</span>
+            <span class="s2">&quot;Perimeter_ZN_1_wall_south_door&quot;</span><span class="p">:</span> <span class="n">cfs_state</span><span class="p">,</span>
+        <span class="p">},</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+    <span class="c1"># electric lighting power control algorithm</span>
+    <span class="c1"># if occupant_count &gt; 0:</span>
+    <span class="c1">#     lighting_power = (</span>
+    <span class="c1">#         1 - min(avg_wpi / 500, 1)</span>
+    <span class="c1">#     ) * 1200  # 1200W is the nominal lighting power density</span>
+    <span class="c1"># else:</span>
+    <span class="c1">#     lighting_power = 0</span>
+    <span class="c1"># actuate electric lighting power</span>
+    <span class="c1"># epsetup.actuate_lighting_power(</span>
+    <span class="c1">#     light=&quot;Perimeter_ZN_1&quot;,</span>
+    <span class="c1">#     value=lighting_power,</span>
+    <span class="c1"># )</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">epsetup</span><span class="o">.</span><span class="n">set_callback</span><span class="p">(</span>
+    <span class="s2">&quot;callback_begin_system_timestep_before_predictor&quot;</span><span class="p">,</span>
+    <span class="n">controller</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">epsetup</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">design_day</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "taoning/pyrad_workshop_24",
+            ref: "development",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "radworkshop"
+        },
+        kernelOptions: {
+            name: "radworkshop",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'radworkshop'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="pyradiance_walkthrough.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Make a scene</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Horizontal melanopic lux</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#make-another-scene">Make another scene</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-grid-from-floor-polygon">Generate grid from floor polygon</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#trace">Trace</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#visualize">Visualize</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#phase-simulation">Phase simulation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#setting-up-a-workflow-configuration-from-a-dictionary">Setting up a workflow configuration from a dictionary</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#see-here-for-setting-up-one-item-at-a-time">see here for setting up one item at a time.</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#energyplus-and-radiance">EnergyPlus and Radiance</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-an-energyplus-model">Load an EnergyPlus model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Load an EnergyPlus model</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-glazing-systems-bsdf">Create Glazing Systems (BSDF)</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#see-here-for-more-options">See here for more options</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#runtime-call-back">Runtime call back</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Taoning
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2023.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

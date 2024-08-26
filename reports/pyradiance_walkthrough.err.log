@@ -1,0 +1,64 @@
+Traceback (most recent call last):
+  File "C:\Users\sayala\.conda\envs\RadWorkshop\Lib\site-packages\jupyter_cache\executors\utils.py", line 58, in single_nb_execution
+    executenb(
+  File "C:\Users\sayala\.conda\envs\RadWorkshop\Lib\site-packages\nbclient\client.py", line 1314, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayala\.conda\envs\RadWorkshop\Lib\site-packages\jupyter_core\utils\__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\sayala\.conda\envs\RadWorkshop\Lib\asyncio\base_events.py", line 687, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\sayala\.conda\envs\RadWorkshop\Lib\site-packages\nbclient\client.py", line 709, in async_execute
+    await self.async_execute_cell(
+  File "C:\Users\sayala\.conda\envs\RadWorkshop\Lib\site-packages\nbclient\client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "C:\Users\sayala\.conda\envs\RadWorkshop\Lib\site-packages\nbclient\client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+with open("raw2.hdr", "wb") as f:
+    f.write(pr.pfilt(img, one_pass=True, xres="/4", yres="/4", gaussian_filter_radius=0.6))
+img_arr = np.frombuffer(pr.pvalue(pr.pcond("raw2.hdr", human=True), header=False, outform='f', resstr=False), dtype=np.single).reshape(800, 800, 3)
+------------------
+
+
+[1;31m---------------------------------------------------------------------------[0m
+[1;31mCalledProcessError[0m                        Traceback (most recent call last)
+File [1;32m~\.conda\envs\RadWorkshop\Lib\site-packages\pyradiance\anci.py:22[0m, in [0;36mhandle_called_process_error.<locals>.wrapper[1;34m(*args, **kwargs)[0m
+[0;32m     21[0m [38;5;28;01mtry[39;00m:
+[1;32m---> 22[0m     result [38;5;241m=[39m [43mfunc[49m[43m([49m[38;5;241;43m*[39;49m[43margs[49m[43m,[49m[43m [49m[38;5;241;43m*[39;49m[38;5;241;43m*[39;49m[43mkwargs[49m[43m)[49m
+[0;32m     23[0m [38;5;28;01mexcept[39;00m CalledProcessError [38;5;28;01mas[39;00m e:
+
+File [1;32m~\.conda\envs\RadWorkshop\Lib\site-packages\pyradiance\px.py:331[0m, in [0;36mpfilt[1;34m(image, xres, yres, pixel_aspect, pa_correct, exposure, lamp, lampdat, one_pass, gaussian_filter_radius, limitfrac, hot_threshold, star_points, star_spread, average_hot)[0m
+[0;32m    330[0m     [38;5;28;01mraise[39;00m [38;5;167;01mTypeError[39;00m([38;5;124m"[39m[38;5;124mimage should be a string, Path, or bytes.[39m[38;5;124m"[39m)
+[1;32m--> 331[0m [38;5;28;01mreturn[39;00m [43msp[49m[38;5;241;43m.[39;49m[43mrun[49m[43m([49m[43mcmd[49m[43m,[49m[43m [49m[38;5;28;43minput[39;49m[38;5;241;43m=[39;49m[43mstdin[49m[43m,[49m[43m [49m[43mstdout[49m[38;5;241;43m=[39;49m[43msp[49m[38;5;241;43m.[39;49m[43mPIPE[49m[43m,[49m[43m [49m[43mcheck[49m[38;5;241;43m=[39;49m[38;5;28;43;01mTrue[39;49;00m[43m)[49m[38;5;241m.[39mstdout
+
+File [1;32m~\.conda\envs\RadWorkshop\Lib\subprocess.py:571[0m, in [0;36mrun[1;34m(input, capture_output, timeout, check, *popenargs, **kwargs)[0m
+[0;32m    570[0m     [38;5;28;01mif[39;00m check [38;5;129;01mand[39;00m retcode:
+[1;32m--> 571[0m         [38;5;28;01mraise[39;00m CalledProcessError(retcode, process[38;5;241m.[39margs,
+[0;32m    572[0m                                  output[38;5;241m=[39mstdout, stderr[38;5;241m=[39mstderr)
+[0;32m    573[0m [38;5;28;01mreturn[39;00m CompletedProcess(process[38;5;241m.[39margs, retcode, stdout, stderr)
+
+[1;31mCalledProcessError[0m: Command '['C:\\Users\\sayala\\.conda\\envs\\RadWorkshop\\Lib\\site-packages\\pyradiance\\bin\\pfilt', '-x', '/4', '-y', '/4', '-1', '-r', '0.6']' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+[1;31mRuntimeError[0m                              Traceback (most recent call last)
+Cell [1;32mIn[10], line 2[0m
+[0;32m      1[0m [38;5;28;01mwith[39;00m [38;5;28mopen[39m([38;5;124m"[39m[38;5;124mraw2.hdr[39m[38;5;124m"[39m, [38;5;124m"[39m[38;5;124mwb[39m[38;5;124m"[39m) [38;5;28;01mas[39;00m f:
+[1;32m----> 2[0m     f[38;5;241m.[39mwrite([43mpr[49m[38;5;241;43m.[39;49m[43mpfilt[49m[43m([49m[43mimg[49m[43m,[49m[43m [49m[43mone_pass[49m[38;5;241;43m=[39;49m[38;5;28;43;01mTrue[39;49;00m[43m,[49m[43m [49m[43mxres[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43m/4[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[43myres[49m[38;5;241;43m=[39;49m[38;5;124;43m"[39;49m[38;5;124;43m/4[39;49m[38;5;124;43m"[39;49m[43m,[49m[43m [49m[43mgaussian_filter_radius[49m[38;5;241;43m=[39;49m[38;5;241;43m0.6[39;49m[43m)[49m)
+[0;32m      3[0m img_arr [38;5;241m=[39m np[38;5;241m.[39mfrombuffer(pr[38;5;241m.[39mpvalue(pr[38;5;241m.[39mpcond([38;5;124m"[39m[38;5;124mraw2.hdr[39m[38;5;124m"[39m, human[38;5;241m=[39m[38;5;28;01mTrue[39;00m), header[38;5;241m=[39m[38;5;28;01mFalse[39;00m, outform[38;5;241m=[39m[38;5;124m'[39m[38;5;124mf[39m[38;5;124m'[39m, resstr[38;5;241m=[39m[38;5;28;01mFalse[39;00m), dtype[38;5;241m=[39mnp[38;5;241m.[39msingle)[38;5;241m.[39mreshape([38;5;241m800[39m, [38;5;241m800[39m, [38;5;241m3[39m)
+
+File [1;32m~\.conda\envs\RadWorkshop\Lib\site-packages\pyradiance\anci.py:25[0m, in [0;36mhandle_called_process_error.<locals>.wrapper[1;34m(*args, **kwargs)[0m
+[0;32m     23[0m [38;5;28;01mexcept[39;00m CalledProcessError [38;5;28;01mas[39;00m e:
+[0;32m     24[0m     errmsg [38;5;241m=[39m e[38;5;241m.[39mstderr [38;5;129;01mor[39;00m [38;5;124mb[39m[38;5;124m"[39m[38;5;124m"[39m
+[1;32m---> 25[0m     [38;5;28;01mraise[39;00m [38;5;167;01mRuntimeError[39;00m(
+[0;32m     26[0m         [38;5;124mf[39m[38;5;124m"[39m[38;5;124mAn error occurred with exit code [39m[38;5;132;01m{[39;00me[38;5;241m.[39mreturncode[38;5;132;01m}[39;00m[38;5;124m: [39m[38;5;132;01m{[39;00merrmsg[38;5;241m.[39mdecode()[38;5;132;01m}[39;00m[38;5;124m"[39m
+[0;32m     27[0m     )
+[0;32m     28[0m [38;5;28;01melse[39;00m:
+[0;32m     29[0m     [38;5;28;01mreturn[39;00m result
+
+[1;31mRuntimeError[0m: An error occurred with exit code 1: 
+
