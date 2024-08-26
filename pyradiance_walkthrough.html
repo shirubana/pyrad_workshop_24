@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Make a scene &#8212; pyRADWorkshop2024</title>
+    <title>pyradiance_walkthrough &#8212; pyRADWorkshop2024</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
   
@@ -174,17 +174,7 @@
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Make a scene</a></li>
-
-
-
-
-
-
-
-
-
-
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">pyradiance_walkthrough</a></li>
 <li class="toctree-l1"><a class="reference internal" href="frads_walkthrough.html">Horizontal melanopic lux</a></li>
 
 
@@ -422,7 +412,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Make a scene</h1>
+    <h1>pyradiance_walkthrough</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -432,19 +422,21 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Make a scene</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#render">Render</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tone-mapping">Tone-mapping</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#luminance-falsecoloring">Luminance falsecoloring</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#set-sampling-parameters">Set sampling parameters</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#rendering-with-rtpict">Rendering with rtpict</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Tone-mapping</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bsdf-analysis">BSDF analysis</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-spectral-sky-primitives">Generate spectral sky primitives</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modify-this-to-generate-the-octree-right-now-it-only-contains-the-skys">Modify this to generate the octree, right now it only contains the skys</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#render-an-image">Render an image</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-requirements-in-google-collab">Install requirements in Google Collab</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-a-scene">Make a scene</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#render">Render</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tone-mapping">Tone-mapping</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#luminance-falsecoloring">Luminance falsecoloring</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-sampling-parameters">Set sampling parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rendering-with-rtpict">Rendering with rtpict</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Tone-mapping</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bsdf-analysis">BSDF analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-spectral-sky-primitives">Generate spectral sky primitives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modify-this-to-generate-the-octree-right-now-it-only-contains-the-skys">Modify this to generate the octree, right now it only contains the skys</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#render-an-image">Render an image</a></li>
 </ul>
-
+</li>
+</ul>
             </nav>
         </div>
     </div>
@@ -455,7 +447,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <div class="cell docutils container">
+  <section class="tex2jax_ignore mathjax_ignore" id="pyradiance-walkthrough">
+<h1>pyradiance_walkthrough<a class="headerlink" href="#pyradiance-walkthrough" title="Link to this heading">#</a></h1>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># !pip install -r https://raw.githubusercontent.com/taoning/pyrad_workshop_24/development/requirements.txt</span>
 </pre></div>
@@ -474,8 +468,10 @@ document.write(`
 </div>
 </div>
 </div>
+<section id="install-requirements-in-google-collab">
+<h2>Install requirements in Google Collab<a class="headerlink" href="#install-requirements-in-google-collab" title="Link to this heading">#</a></h2>
 <section id="make-a-scene">
-<h1>Make a scene<a class="headerlink" href="#make-a-scene" title="Link to this heading">#</a></h1>
+<h3>Make a scene<a class="headerlink" href="#make-a-scene" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">my_scene</span> <span class="o">=</span> <span class="n">pr</span><span class="o">.</span><span class="n">Scene</span><span class="p">(</span>
@@ -504,7 +500,7 @@ document.write(`
 </div>
 </section>
 <section id="render">
-<h1>Render<a class="headerlink" href="#render" title="Link to this heading">#</a></h1>
+<h3>Render<a class="headerlink" href="#render" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">pr</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">my_scene</span><span class="p">,</span> <span class="n">resolution</span><span class="o">=</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span> <span class="mi">800</span><span class="p">),</span> <span class="n">ambbounce</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">nproc</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">quality</span><span class="o">=</span><span class="s2">&quot;L&quot;</span><span class="p">)</span>
@@ -514,7 +510,7 @@ document.write(`
 </div>
 </section>
 <section id="tone-mapping">
-<h1>Tone-mapping<a class="headerlink" href="#tone-mapping" title="Link to this heading">#</a></h1>
+<h3>Tone-mapping<a class="headerlink" href="#tone-mapping" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;raw.hdr&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
@@ -529,18 +525,18 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers). Got range [0.0005016327..1.0039062].
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Clipping input data to the valid range for imshow with RGB data ([0..1] for floats or [0..255] for integers). Got range [0.00041007996..1.0039062].
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1e5185d7530&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.image.AxesImage at 0x1f45f8f0230&gt;
 </pre></div>
 </div>
-<img alt="_images/1f021f37e579cb91117f31988ba21582d462564478a14af17f8cd10a39ebeb2f.png" src="_images/1f021f37e579cb91117f31988ba21582d462564478a14af17f8cd10a39ebeb2f.png" />
+<img alt="_images/54e83625d862ee65b65d758fc204e4506cb5ecc28ce3221adc911f70f9a9294e.png" src="_images/54e83625d862ee65b65d758fc204e4506cb5ecc28ce3221adc911f70f9a9294e.png" />
 </div>
 </div>
 </section>
 <section id="luminance-falsecoloring">
-<h1>Luminance falsecoloring<a class="headerlink" href="#luminance-falsecoloring" title="Link to this heading">#</a></h1>
+<h3>Luminance falsecoloring<a class="headerlink" href="#luminance-falsecoloring" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img_data</span> <span class="o">=</span> <span class="n">pr</span><span class="o">.</span><span class="n">pvalue</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">outform</span><span class="o">=</span><span class="s1">&#39;f&#39;</span><span class="p">,</span> <span class="n">resstr</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -552,15 +548,15 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x1e519f79b50&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.colorbar.Colorbar at 0x1f45fe72360&gt;
 </pre></div>
 </div>
-<img alt="_images/a39eba533d19f70997869b09c5de5a4e90d00c4ece93d43fef67f7098c4a2352.png" src="_images/a39eba533d19f70997869b09c5de5a4e90d00c4ece93d43fef67f7098c4a2352.png" />
+<img alt="_images/4a281c0512ec38b599a1ca0148bf68bad2ba19a949bcbe8948fb1a3f5ef7fd5d.png" src="_images/4a281c0512ec38b599a1ca0148bf68bad2ba19a949bcbe8948fb1a3f5ef7fd5d.png" />
 </div>
 </div>
 </section>
 <section id="set-sampling-parameters">
-<h1>Set sampling parameters<a class="headerlink" href="#set-sampling-parameters" title="Link to this heading">#</a></h1>
+<h3>Set sampling parameters<a class="headerlink" href="#set-sampling-parameters" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sp</span> <span class="o">=</span> <span class="n">pr</span><span class="o">.</span><span class="n">SamplingParameters</span><span class="p">()</span>
@@ -573,7 +569,7 @@ document.write(`
 </div>
 </section>
 <section id="rendering-with-rtpict">
-<h1>Rendering with rtpict<a class="headerlink" href="#rendering-with-rtpict" title="Link to this heading">#</a></h1>
+<h3>Rendering with rtpict<a class="headerlink" href="#rendering-with-rtpict" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">img</span> <span class="o">=</span> <span class="n">pr</span><span class="o">.</span><span class="n">rtpict</span><span class="p">(</span><span class="n">my_view</span><span class="p">,</span> <span class="n">my_scene</span><span class="o">.</span><span class="n">octree</span><span class="p">,</span> <span class="n">xres</span><span class="o">=</span><span class="mi">3200</span><span class="p">,</span> <span class="n">yres</span><span class="o">=</span><span class="mi">3200</span><span class="p">,</span> <span class="n">nproc</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">sp</span><span class="o">.</span><span class="n">args</span><span class="p">())</span>
@@ -583,7 +579,7 @@ document.write(`
 </div>
 </section>
 <section id="id1">
-<h1>Tone-mapping<a class="headerlink" href="#id1" title="Link to this heading">#</a></h1>
+<h3>Tone-mapping<a class="headerlink" href="#id1" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pwd</span>
@@ -655,7 +651,7 @@ document.write(`
 </div>
 </section>
 <section id="bsdf-analysis">
-<h1>BSDF analysis<a class="headerlink" href="#bsdf-analysis" title="Link to this heading">#</a></h1>
+<h3>BSDF analysis<a class="headerlink" href="#bsdf-analysis" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ttree</span> <span class="o">=</span> <span class="n">pr</span><span class="o">.</span><span class="n">BSDF</span><span class="p">(</span><span class="s2">&quot;./ms6858_g6.xml&quot;</span><span class="p">)</span>
@@ -704,7 +700,7 @@ document.write(`
 </div>
 </section>
 <section id="generate-spectral-sky-primitives">
-<h1>Generate spectral sky primitives<a class="headerlink" href="#generate-spectral-sky-primitives" title="Link to this heading">#</a></h1>
+<h3>Generate spectral sky primitives<a class="headerlink" href="#generate-spectral-sky-primitives" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ssky</span> <span class="o">=</span> <span class="n">pr</span><span class="o">.</span><span class="n">genssky</span><span class="p">(</span>
@@ -729,7 +725,7 @@ document.write(`
 </div>
 </section>
 <section id="modify-this-to-generate-the-octree-right-now-it-only-contains-the-skys">
-<h1>Modify this to generate the octree, right now it only contains the skys<a class="headerlink" href="#modify-this-to-generate-the-octree-right-now-it-only-contains-the-skys" title="Link to this heading">#</a></h1>
+<h3>Modify this to generate the octree, right now it only contains the skys<a class="headerlink" href="#modify-this-to-generate-the-octree-right-now-it-only-contains-the-skys" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;sky.oct&quot;</span><span class="p">,</span> <span class="s2">&quot;wb&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span> <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">pr</span><span class="o">.</span><span class="n">oconv</span><span class="p">(</span><span class="n">stdin</span><span class="o">=</span><span class="n">ssky</span><span class="o">+</span><span class="n">sky_glow</span><span class="o">+</span><span class="n">sky_source</span><span class="o">+</span><span class="n">ground_source</span><span class="p">))</span>
@@ -739,7 +735,9 @@ document.write(`
 </div>
 </section>
 <section id="render-an-image">
-<h1>Render an image<a class="headerlink" href="#render-an-image" title="Link to this heading">#</a></h1>
+<h3>Render an image<a class="headerlink" href="#render-an-image" title="Link to this heading">#</a></h3>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -806,19 +804,21 @@ document.write(`
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Make a scene</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#render">Render</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tone-mapping">Tone-mapping</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#luminance-falsecoloring">Luminance falsecoloring</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#set-sampling-parameters">Set sampling parameters</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#rendering-with-rtpict">Rendering with rtpict</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Tone-mapping</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#bsdf-analysis">BSDF analysis</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-spectral-sky-primitives">Generate spectral sky primitives</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#modify-this-to-generate-the-octree-right-now-it-only-contains-the-skys">Modify this to generate the octree, right now it only contains the skys</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#render-an-image">Render an image</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#install-requirements-in-google-collab">Install requirements in Google Collab</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#make-a-scene">Make a scene</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#render">Render</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tone-mapping">Tone-mapping</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#luminance-falsecoloring">Luminance falsecoloring</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#set-sampling-parameters">Set sampling parameters</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rendering-with-rtpict">Rendering with rtpict</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Tone-mapping</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#bsdf-analysis">BSDF analysis</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#generate-spectral-sky-primitives">Generate spectral sky primitives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modify-this-to-generate-the-octree-right-now-it-only-contains-the-skys">Modify this to generate the octree, right now it only contains the skys</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#render-an-image">Render an image</a></li>
 </ul>
-
+</li>
+</ul>
   </nav></div>
 
 </div></div>
